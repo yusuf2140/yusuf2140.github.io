@@ -1,126 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Yusuf Games</title>
-<style>
-@font-face {
-  font-family: 'Coolvetica';
-  src: url('Coolvetica Rg.otf') format('opentype');
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #111;
-  background-image: linear-gradient(#111 30%, #151515);
-  color: #ddd;
-  font-family: 'Coolvetica', Arial, sans-serif;
-}
-
-#page {
-  width: 900px;
-  margin: 30px auto;
-  background: #1b1b1b;
-  border: 2px solid #2a2a2a;
-  box-shadow: 0 0 20px #000;
-}
-
-#header {
-  background: #a00000;
-  padding: 15px;
-  color: white;
-  border-bottom: 4px solid #000;
-  text-align: center;
-}
-#header h1 {
-  font-size: 42px;
-  margin: 0;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-#nav {
-  background: #111;
-  text-align: center;
-  border-bottom: 2px solid #a00;
-  padding: 8px 0;
-}
-#nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;
-  font-size: 15px;
-}
-#nav a:hover {
-  color: #ff4444;
-}
-
-#content {
-  padding: 20px;
-}
-.article {
-  background: #262626;
-  border: 1px solid #333;
-  padding: 10px;
-  margin-bottom: 15px;
-}
-.article img {
-  width: 100%;
-  border: 1px solid #444;
-}
-.article h2 {
-  font-size: 22px;
-  margin: 5px 0;
-  color: white;
-}
-.article p {
-  font-size: 14px;
-  color: #ccc;
-}
-
-#footer {
-  text-align: center;
-  color: #666;
-  font-size: 12px;
-  border-top: 1px solid #333;
-  padding: 10px;
-  background: #111;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yusuf Games</title>
+  <style>
+    @font-face {
+      font-family: 'Coolvetica';
+      src: url('Coolvetica Rg.otf') format('opentype');
+    }
+    body {
+      font-family: 'Coolvetica', sans-serif;
+      background: #101010 url('https://i.ibb.co/ZVh01dm/retro-bg.jpg') repeat;
+      color: #ddd;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 800px;
+      margin: 40px auto;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 30px;
+      border: 2px solid #555;
+      box-shadow: 0 0 25px #000;
+    }
+    header {
+      text-align: center;
+      border-bottom: 2px solid #555;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    header h1 {
+      color: #00ff88;
+      font-size: 42px;
+      text-shadow: 0 0 8px #00ff88;
+    }
+    nav {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    nav a {
+      color: #00ffaa;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 18px;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .content h2 {
+      color: #fff;
+      font-size: 28px;
+    }
+    .content p {
+      font-size: 17px;
+      line-height: 1.5;
+    }
+    footer {
+      border-top: 2px solid #555;
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 10px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <header>
+      <h1>Yusuf Games</h1>
+      <nav>
+        <a href="index.html">Home</a> |
+        <a href="mods.html">Mods</a> |
+        <a href="#about">About</a>
+      </nav>
+    </header>
 
-<div id="page">
-  <div id="header">
-    <h1>Yusuf Games</h1>
-  </div>
+    <div class="content">
+      <h2>Welcome to Yusuf Games!</h2>
+      <p>Welcome to the official Yusuf Games site. Here I share my projects, mods, and cool stuff I create.  
+      Everything you see here is built with passion and creativity — no frameworks, no fancy junk, just pure HTML soul like in the old days.</p>
 
-  <div id="nav">
-    <a href="#">Home</a> |
-    <a href="#">Mods</a> |
-    <a href="#">Games</a> |
-    <a href="#">Files</a> |
-    <a href="#">About</a>
-  </div>
-
-  <div id="content">
-    <div class="article">
-      <img src="images/ymod3.jpg" alt="Yusuf's Mod">
-      <h2>Yusuf's Mod</h2>
-      <p>A single-player Source mod developed by Yusuf Umut Yılmaz — a tribute to classic modding from the 2000s.</p>
+      <h2 id="about">About</h2>
+      <p>Hey there! I'm Yusuf Umut Yılmaz, an indie game developer who loves making Source Engine and custom games.  
+      This site is my corner of the internet where I post updates, screenshots, and my mods like <strong>Yusuf’s Mod</strong>.</p>
     </div>
 
-    <div class="article">
-      <h2>Project Status</h2>
-      <p>Currently in development. Featuring new maps, updated physics, and a fully custom menu system.</p>
-    </div>
+    <footer>
+      © 2025 Yusuf Games — Powered by HTML and nostalgia.
+    </footer>
   </div>
-
-  <div id="footer">
-    © 2025 Yusuf Umut Yılmaz | Hosted on GitHub Pages
-  </div>
-</div>
-
 </body>
 </html>
