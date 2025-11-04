@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Yusuf's Mod</title>
+<title>Yusuf Games</title>
 <style>
 @font-face {
   font-family: 'Coolvetica';
@@ -12,18 +12,32 @@
 body {
   margin: 0;
   padding: 0;
-  background: #111;
-  font-family: 'Coolvetica', Arial, sans-serif;
+  background-color: #111;
+  background-image: linear-gradient(#111 30%, #151515);
   color: #ddd;
+  font-family: 'Coolvetica', Arial, sans-serif;
 }
 
-#topbar {
-  background: #a00;
+#page {
+  width: 900px;
+  margin: 30px auto;
+  background: #1b1b1b;
+  border: 2px solid #2a2a2a;
+  box-shadow: 0 0 20px #000;
+}
+
+#header {
+  background: #a00000;
+  padding: 15px;
   color: white;
-  padding: 5px 20px;
-  font-size: 22px;
-  text-transform: uppercase;
   border-bottom: 4px solid #000;
+  text-align: center;
+}
+#header h1 {
+  font-size: 42px;
+  margin: 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 #nav {
@@ -36,51 +50,32 @@ body {
   color: white;
   text-decoration: none;
   margin: 0 15px;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 15px;
 }
 #nav a:hover {
   color: #ff4444;
 }
 
-#main {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+#content {
   padding: 20px;
 }
-
-#left {
-  background: #222;
-  border: 1px solid #333;
-  padding: 10px;
-  width: 600px;
-}
-
-#right {
-  background: #1a1a1a;
-  border: 1px solid #333;
-  width: 250px;
-  padding: 10px;
-}
-
 .article {
-  background: #333;
-  border: 1px solid #444;
-  margin-bottom: 10px;
+  background: #262626;
+  border: 1px solid #333;
   padding: 10px;
+  margin-bottom: 15px;
 }
 .article img {
   width: 100%;
-  border: 1px solid #555;
+  border: 1px solid #444;
 }
 .article h2 {
-  font-size: 20px;
+  font-size: 22px;
   margin: 5px 0;
-  color: #fff;
+  color: white;
 }
 .article p {
-  font-size: 13px;
+  font-size: 14px;
   color: #ccc;
 }
 
@@ -88,50 +83,43 @@ body {
   text-align: center;
   color: #666;
   font-size: 12px;
-  padding: 10px;
   border-top: 1px solid #333;
-  margin-top: 20px;
+  padding: 10px;
+  background: #111;
 }
 </style>
 </head>
 <body>
 
-<div id="topbar">Yusuf's Mod</div>
+<div id="page">
+  <div id="header">
+    <h1>Yusuf Games</h1>
+  </div>
 
-<div id="nav">
-  <a href="#">Home</a> |
-  <a href="#">Games</a> |
-  <a href="#">Mods</a> |
-  <a href="#">Files</a> |
-  <a href="#">Articles</a> |
-  <a href="#">Engines</a>
-</div>
+  <div id="nav">
+    <a href="#">Home</a> |
+    <a href="#">Mods</a> |
+    <a href="#">Games</a> |
+    <a href="#">Files</a> |
+    <a href="#">About</a>
+  </div>
 
-<div id="main">
-  <div id="left">
+  <div id="content">
     <div class="article">
-      <img src="images/sample.jpg" alt="YMod 3">
-      <h2>YMod 3 Trailer</h2>
-      <p>The next generation of Source-based creativity — coming soon.</p>
+      <img src="images/ymod3.jpg" alt="Yusuf's Mod">
+      <h2>Yusuf's Mod</h2>
+      <p>A single-player Source mod developed by Yusuf Umut Yılmaz — a tribute to classic modding from the 2000s.</p>
     </div>
+
     <div class="article">
-      <h2>Latest Updates</h2>
-      <p>New maps, assets, and a custom engine layer are now in development.</p>
+      <h2>Project Status</h2>
+      <p>Currently in development. Featuring new maps, updated physics, and a fully custom menu system.</p>
     </div>
   </div>
 
-  <div id="right">
-    <h3>Popular Mods</h3>
-    <ul style="list-style:none; padding-left:0;">
-      <li>• YMod 3</li>
-      <li>• Source Reboot</li>
-      <li>• Lost Gravity</li>
-    </ul>
+  <div id="footer">
+    © 2025 Yusuf Umut Yılmaz | Hosted on GitHub Pages
   </div>
-</div>
-
-<div id="footer">
-  © 2025 Yusuf Umut Yılmaz | All rights reserved
 </div>
 
 </body>
