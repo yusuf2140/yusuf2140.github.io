@@ -3,19 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yusuf Umut - Retro 2009</title>
+    <title>Yusuf Umut - Retro Web</title>
     <style>
-        /* 2009 Tarzı Arkaplan ve Font */
+        /* GENEL TASARIM (2009 RETRO) */
         body {
             background-color: #e0e0e0;
-            font-family: "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Geneva, Verdana, sans-serif;
+            font-family: "Lucida Sans", Verdana, sans-serif;
             margin: 0;
-            padding: 0;
             display: flex;
             justify-content: center;
         }
 
-        /* Ana Konteynır */
         .container {
             width: 800px;
             background-color: white;
@@ -25,140 +23,158 @@
             box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
         }
 
-        /* Header / Logo Alanı (N Kısmı) */
+        /* N KISMI (HEADER) */
         header {
             background: linear-gradient(to bottom, #4a4a4a 0%, #222 100%);
             color: white;
             padding: 30px;
-            text-align: left;
-            border-bottom: 4px solid #ff9900; /* Klasik vurgu rengi */
+            border-bottom: 4px solid #ff9900;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 36px;
-            text-shadow: 2px 2px #000;
-            letter-spacing: -1px;
-        }
+        header h1 { margin: 0; font-size: 36px; text-shadow: 2px 2px #000; }
 
-        /* Navigasyon (e, b, c kısımları) */
-        nav {
-            background: #333;
-            display: flex;
-            border-bottom: 1px solid #000;
-        }
+        /* NAVİGASYON (e, b, c) */
+        nav { background: #333; display: flex; border-bottom: 1px solid #000; }
 
-        nav a {
+        nav button {
             flex: 1;
-            text-align: center;
-            padding: 12px 0;
+            padding: 15px 0;
             color: white;
-            text-decoration: none;
+            border: none;
+            cursor: pointer;
             font-weight: bold;
             font-size: 14px;
-            border-right: 1px solid #444;
-            /* Glossy Efekti */
             background: linear-gradient(to bottom, #555 0%, #333 50%, #111 50%, #222 100%);
+            border-right: 1px solid #444;
         }
 
-        nav a:hover {
+        nav button:hover {
             background: linear-gradient(to bottom, #777 0%, #555 50%, #222 50%, #444 100%);
             color: #ff9900;
         }
 
-        /* İçerik Alanı */
-        .main-content {
-            padding: 20px;
-            line-height: 1.6;
+        nav button.active {
+            color: #ff9900;
+            background: #111;
         }
 
-        .post-title {
-            border-bottom: 2px dotted #ccc;
-            color: #222;
-            margin-bottom: 15px;
+        /* İÇERİK ALANLARI */
+        .page-content {
+            display: none; /* Başlangıçta hepsi gizli */
+            padding: 30px;
+            animation: fadeIn 0.3s;
         }
 
-        /* Çizimindeki Orta Kutu (Görsel Alanı) */
-        .image-placeholder {
-            width: 300px;
-            height: 180px;
-            background: #eee;
-            border: 5px solid #ddd;
-            margin: 20px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
+        .active-page { display: block; } /* Sadece aktif olan görünür */
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* 1. TASLAK: HOME PAGE STİLİ */
+        .home-image-box {
+            width: 300px; height: 180px;
+            background: #eee; border: 5px solid #ddd;
+            margin: 20px auto; display: flex;
+            align-items: center; justify-content: center;
             box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
         }
 
-        /* Alt Kısımdaki Yuvarlak ve Dikdörtgen Alan */
-        .footer-action {
-            display: flex;
-            align-items: center;
-            margin-top: 30px;
-            gap: 15px;
+        /* 2. TASLAK: GAMES PAGE STİLİ */
+        .game-card {
+            display: flex; gap: 20px;
+            background: #f4f4f4; border: 1px solid #ccc;
+            padding: 15px; border-radius: 5px;
         }
 
-        .circle {
-            width: 50px;
-            height: 50px;
-            background: #ff9900;
-            border-radius: 50%;
-            border: 3px solid #cc7a00;
-            box-shadow: inset 0 0 10px white;
+        .game-img-placeholder {
+            width: 150px; height: 150px;
+            background: #333; color: white;
+            display: flex; align-items: center; justify-content: center;
         }
 
-        .bar {
-            height: 25px;
-            width: 300px;
-            background: linear-gradient(to right, #ddd, #fff);
-            border: 1px solid #bbb;
-            border-radius: 5px;
+        .play-btn {
+            display: inline-block;
+            background: linear-gradient(to bottom, #2ecc71, #27ae60);
+            color: white; padding: 10px 20px;
+            text-decoration: none; border-radius: 5px;
+            font-weight: bold; border: 1px solid #145a32;
         }
 
-        footer {
-            text-align: center;
-            font-size: 12px;
-            color: #666;
-            margin-top: 50px;
-            padding-bottom: 20px;
-        }
+        footer { text-align: center; padding: 20px; color: #888; font-size: 12px; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>Yusuf Umut</h1>
-        </header>
+<div class="container">
+    <header>
+        <h1>Yusuf Umut</h1>
+    </header>
 
-        <nav>
-            <a href="#">Home Page</a>
-            <a href="#">Games</a>
-            <a href="#">News</a>
-        </nav>
+    <nav>
+        <button onclick="openPage('home', this)" class="active">Home Page</button>
+        <button onclick="openPage('games', this)">Games</button>
+        <button onclick="openPage('news', this)">News</button>
+    </nav>
 
-        <div class="main-content">
-            <h2 class="post-title">Welcome!</h2>
-            <p>This website is for me and my games! You can find my games here!</p>
+    <div id="home" class="page-content active-page">
+        <h2>Ana Sayfaya Hoş Geldiniz</h2>
+        <p>Burası web sitemizin giriş kısmıdır. 2009 modasını burada yaşatıyoruz.</p>
+        <div class="home-image-box">İçerik Görseli</div>
+        <p>Aşağıda yer alan profil çubuğu aktiftir.</p>
+        <div style="display:flex; align-items:center; gap:10px;">
+            <div style="width:40px; height:40px; border-radius:50%; background:#ff9900;"></div>
+            <div style="width:200px; height:20px; background:#ddd; border:1px solid #bbb;"></div>
+        </div>
+    </div>
 
-            <div class="image-placeholder">
-                [Görsel Alanı]
-            </div>
-
-            <p>Alt tarafta yer alan kontrol paneli ve içerik akışı ile tam bir nostalji deneyimi sunuyoruz.</p>
-
-            <div class="footer-action">
-                <div class="circle"></div>
-                <div class="bar"></div>
+    <div id="games" class="page-content">
+        <h2>Popüler Oyunlar</h2>
+        <div class="game-card">
+            <div class="game-img-placeholder">RESİM</div>
+            <div>
+                <h3>Süper Macera 2009</h3>
+                <p>Efsanevi platform oyunu şimdi tarayıcınızda.</p>
+                <a href="#" class="play-btn">↓ OYUNA BAŞLA</a>
             </div>
         </div>
-
-        <footer>
-            &copy; 2026, Yusuf Umut Yılmaz
-        </footer>
     </div>
+
+    <div id="news" class="page-content">
+        <h2>Son Haberler</h2>
+        <ul>
+            <li><strong>22 Ocak 2026:</strong> Web sitemiz retro tasarımla güncellendi!</li>
+            <li><strong>15 Ocak 2026:</strong> Yeni oyunlar Games kategorisine eklendi.</li>
+            <li><strong>01 Ocak 2026:</strong> Mutlu yıllar!</li>
+        </ul>
+    </div>
+
+    <footer>
+        &copy; 2009 - 2026 Yusuf Umut Tasarım
+    </footer>
+</div>
+
+<script>
+    function openPage(pageName, elmnt) {
+        // Tüm sayfaları gizle
+        var i, content, tablinks;
+        content = document.getElementsByClassName("page-content");
+        for (i = 0; i < content.length; i++) {
+            content[i].style.display = "none";
+        }
+
+        // Tüm butonlardaki 'active' sınıfını kaldır
+        tablinks = document.getElementsByTagName("button");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
+
+        // Seçilen sayfayı göster ve butonu aktif yap
+        document.getElementById(pageName).style.display = "block";
+        elmnt.classList.add("active");
+    }
+</script>
 
 </body>
 </html>
