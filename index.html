@@ -3,174 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yusuf Umut - Retro Web</title>
+    <title>Yusuf Umut - GMod 9 Setup Guide</title>
     <style>
-        /* GENEL TASARIM (2009 RETRO) */
+        /* Coolvetica Import (Local veya Google Fonts olmadığı için benzeri sans-serif fallbackli) */
+        @font-face {
+            font-family: 'Coolvetica';
+            src: local('Coolvetica'), local('Coolvetica RG');
+        }
+
         body {
-            background-color: #e0e0e0;
-            font-family: "Lucida Sans", Verdana, sans-serif;
+            background-color: #1b1b1b; /* Dark Steam/Source style */
+            font-family: "Coolvetica", "Helvetica Neue", Arial, sans-serif;
             margin: 0;
             display: flex;
             justify-content: center;
+            color: #ccc;
         }
 
         .container {
-            width: 800px;
-            background-color: white;
-            border-left: 2px solid #999;
-            border-right: 2px solid #999;
+            width: 850px;
+            background-color: #2b2b2b;
+            border-left: 3px solid #444;
+            border-right: 3px solid #444;
             min-height: 100vh;
-            box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+            box-shadow: 0px 0px 25px rgba(0,0,0,0.5);
         }
 
-        /* N KISMI (HEADER) */
         header {
-            background: linear-gradient(to bottom, #4a4a4a 0%, #222 100%);
-            color: white;
-            padding: 30px;
-            border-bottom: 4px solid #ff9900;
+            background: linear-gradient(to bottom, #3a3a3a 0%, #1a1a1a 100%);
+            color: #ff9900;
+            padding: 40px;
+            border-bottom: 5px solid #ff9900;
+            text-align: center;
         }
 
-        header h1 { margin: 0; font-size: 36px; text-shadow: 2px 2px #000; }
+        header h1 { 
+            margin: 0; 
+            font-size: 48px; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px #000;
+        }
 
-        /* NAVİGASYON (e, b, c) */
-        nav { background: #333; display: flex; border-bottom: 1px solid #000; }
+        nav { background: #111; display: flex; border-bottom: 2px solid #000; }
 
         nav button {
             flex: 1;
-            padding: 15px 0;
-            color: white;
+            padding: 18px 0;
+            color: #bbb;
             border: none;
             cursor: pointer;
             font-weight: bold;
-            font-size: 14px;
-            background: linear-gradient(to bottom, #555 0%, #333 50%, #111 50%, #222 100%);
-            border-right: 1px solid #444;
+            font-family: "Coolvetica", sans-serif;
+            font-size: 16px;
+            background: linear-gradient(to bottom, #444 0%, #222 50%, #111 50%, #222 100%);
+            border-right: 1px solid #333;
+            transition: 0.2s;
         }
 
         nav button:hover {
-            background: linear-gradient(to bottom, #777 0%, #555 50%, #222 50%, #444 100%);
-            color: #ff9900;
+            color: #fff;
+            background: #ff9900;
         }
 
         nav button.active {
-            color: #ff9900;
-            background: #111;
+            color: #000;
+            background: #ff9900;
         }
 
-        /* İÇERİK ALANLARI */
         .page-content {
-            display: none; /* Başlangıçta hepsi gizli */
-            padding: 30px;
-            animation: fadeIn 0.3s;
+            display: none;
+            padding: 35px;
+            line-height: 1.6;
         }
 
-        .active-page { display: block; } /* Sadece aktif olan görünür */
+        .active-page { display: block; }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        h2 { color: #ff9900; border-bottom: 1px solid #444; padding-bottom: 10px; }
+
+        /* REHBER KODU STİLİ */
+        .code-box {
+            background: #000;
+            color: #00ff00;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            border: 1px dashed #ff9900;
+            margin: 15px 0;
+            word-break: break-all;
+            font-size: 13px;
         }
 
-        /* 1. TASLAK: HOME PAGE STİLİ */
-        .home-image-box {
-            width: 300px; height: 180px;
-            background: #eee; border: 5px solid #ddd;
-            margin: 20px auto; display: flex;
-            align-items: center; justify-content: center;
-            box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
+        .step-box {
+            background: #333;
+            padding: 20px;
+            border-left: 10px solid #ff9900;
+            margin-bottom: 20px;
         }
 
-        /* 2. TASLAK: GAMES PAGE STİLİ */
-        .game-card {
-            display: flex; gap: 20px;
-            background: #f4f4f4; border: 1px solid #ccc;
-            padding: 15px; border-radius: 5px;
+        .warning {
+            color: #ff4444;
+            font-weight: bold;
+            background: #442222;
+            padding: 10px;
+            border: 1px solid #ff4444;
         }
 
-        .game-img-placeholder {
-            width: 150px; height: 150px;
-            background: #333; color: white;
-            display: flex; align-items: center; justify-content: center;
-        }
-
-        .play-btn {
-            display: inline-block;
-            background: linear-gradient(to bottom, #2ecc71, #27ae60);
-            color: white; padding: 10px 20px;
-            text-decoration: none; border-radius: 5px;
-            font-weight: bold; border: 1px solid #145a32;
-        }
-
-        footer { text-align: center; padding: 20px; color: #888; font-size: 12px; }
+        footer { text-align: center; padding: 30px; color: #666; font-size: 11px; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <h1>Yusuf Umut</h1>
+        <h1>GARRY'S MOD 9</h1>
     </header>
 
     <nav>
-        <button onclick="openPage('home', this)" class="active">Home Page</button>
-        <button onclick="openPage('games', this)">Games</button>
-        <button onclick="openPage('news', this)">News</button>
+        <button onclick="openPage('home', this)" class="active">ANA SAYFA</button>
+        <button onclick="openPage('setup', this)">NASIL KURULUR?</button>
+        <button onclick="openPage('fix', this)">HATA ÇÖZÜMLERİ</button>
     </nav>
 
+    <!-- ANA SAYFA -->
     <div id="home" class="page-content active-page">
-        <h2>Ana Sayfaya Hoş Geldiniz</h2>
-        <p>Burası web sitemizin giriş kısmıdır. 2009 modasını burada yaşatıyoruz.</p>
-        <div class="home-image-box">İçerik Görseli</div>
-        <p>Aşağıda yer alan profil çubuğu aktiftir.</p>
-        <div style="display:flex; align-items:center; gap:10px;">
-            <div style="width:40px; height:40px; border-radius:50%; background:#ff9900;"></div>
-            <div style="width:200px; height:20px; background:#ddd; border:1px solid #bbb;"></div>
+        <h2>Retro GMod 9 Deneyimi</h2>
+        <p>Garry's Mod'un efsanevi 9.0.4 sürümünü Steam'e ihtiyaç duymadan (veya Steam üzerinden manuel kısayol ile) çalıştırmak isteyenler için hazırladığım rehber sayfasına hoş geldiniz.</p>
+        <div style="background:#444; height:200px; display:flex; align-items:center; justify-content:center; border:2px solid #555;">
+            <span style="font-size:24px; color:#ff9900;">[ GMOD 9 SCREENSHOT ]</span>
         </div>
+        <p>2006-2009 yıllarının efsane modunu Source SDK Base 2006 altyapısıyla hayata döndürüyoruz. Yan menüden kurulum adımlarına geçebilirsin.</p>
     </div>
 
-    <div id="games" class="page-content">
-        <h2>Yeni Oyunlar</h2>
-        <div class="game-card">
-            <div class="game-img-placeholder">RESİM</div>
-            <div>
-                <h3>UBlocks!</h3>
-                <p>UBlocks sizi hayal gücünüzle bırakır!</p>
-                <a href="#" class="play-btn">↓ İNDİR</a>
-            </div>
+    <!-- KURULUM SAYFASI -->
+    <div id="setup" class="page-content">
+        <h2>Kısayol (Shortcut) Kurulumu</h2>
+        <p>GMod 9'u doğru çalıştırmak için "Hedef" (Target) yolunu elle düzenlememiz gerekiyor. İşte adım adım yapman gerekenler:</p>
+        
+        <div class="step-box">
+            <strong>ADIM 1:</strong> Source SDK Base 2006'nın kurulu olduğundan emin olun. <br>
+            <strong>ADIM 2:</strong> Masaüstüne sağ tıklayıp "Yeni -> Kısayol" oluşturun. <br>
+            <strong>ADIM 3:</strong> "Öğenin konumunu yazın" kısmına Source SDK Base içindeki hl2.exe yolunu ve oyun parametresini ekleyin.
         </div>
+
+        <h3>Hedef (Target) Şöyle Olmalı:</h3>
+        <div class="code-box">
+            "C:\Program Files (x86)\Steam\steamapps\common\Source SDK Base\hl2.exe" -game "C:\Program Files (x86)\Steam\steamapps\sourcemods\gmod9\"
+        </div>
+
+        <p class="warning">
+            NOT: "Başlatma Yeri" (Start In) kısmına dokunmayın! Orayı hl2.exe'nin bulunduğu klasör olarak otomatik bırakacaktır, elleme yaparsak oyun crash verebilir.
+        </p>
     </div>
 
-    <div id="news" class="page-content">
-        <h2>Son Haberler</h2>
-        <ul>
-            <li><strong>22 Ocak 2026:</strong> Web sitemiz retro tasarımla güncellendi!</li>
-            <li><strong>15 Ocak 2026:</strong> Yeni oyunlar Games kategorisine eklendi.</li>
-            <li><strong>01 Ocak 2026:</strong> Mutlu yıllar!</li>
-        </ul>
+    <!-- HATA ÇÖZÜM -->
+    <div id="fix" class="page-content">
+        <h2>Sıkça Karşılaşılan Hatalar</h2>
+        <p><strong>Mounting hatası alıyorum:</strong> <code>sourcemods</code> klasörünün adının küçük harf olduğundan ve gmod9 klasörünün tam orada olduğundan emin olun.</p>
+        <p><strong>Steam is not running:</strong> GMod 9 eski olduğu için arkada Steam'in açık olması gerekebilir, ancak kısayol yöntemi genelde bunu bypass eder.</p>
     </div>
 
     <footer>
-        &copy; 2009 - 2026 Yusuf Umut Tasarım
+        &copy; 2009 - 2026 Yusuf Umut - GMod 9 Archive Project
     </footer>
 </div>
 
 <script>
     function openPage(pageName, elmnt) {
-        // Tüm sayfaları gizle
         var i, content, tablinks;
         content = document.getElementsByClassName("page-content");
         for (i = 0; i < content.length; i++) {
             content[i].style.display = "none";
         }
-
-        // Tüm butonlardaki 'active' sınıfını kaldır
         tablinks = document.getElementsByTagName("button");
         for (i = 0; i < tablinks.length; i++) {
             tablinks[i].classList.remove("active");
         }
-
-        // Seçilen sayfayı göster ve butonu aktif yap
         document.getElementById(pageName).style.display = "block";
         elmnt.classList.add("active");
     }
