@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yusuf Umut - GMod 9 Setup Guide</title>
     <style>
-        /* Coolvetica Import (Local veya Google Fonts olmadığı için benzeri sans-serif fallbackli) */
         @font-face {
             font-family: 'Coolvetica';
             src: local('Coolvetica'), local('Coolvetica RG');
         }
 
         body {
-            background-color: #1b1b1b; /* Dark Steam/Source style */
+            background-color: #1b1b1b;
             font-family: "Coolvetica", "Helvetica Neue", Arial, sans-serif;
             margin: 0;
             display: flex;
@@ -58,30 +57,16 @@
             font-size: 16px;
             background: linear-gradient(to bottom, #444 0%, #222 50%, #111 50%, #222 100%);
             border-right: 1px solid #333;
-            transition: 0.2s;
         }
 
-        nav button:hover {
-            color: #fff;
-            background: #ff9900;
-        }
+        nav button:hover { color: #fff; background: #ff9900; }
+        nav button.active { color: #000; background: #ff9900; }
 
-        nav button.active {
-            color: #000;
-            background: #ff9900;
-        }
-
-        .page-content {
-            display: none;
-            padding: 35px;
-            line-height: 1.6;
-        }
-
+        .page-content { display: none; padding: 35px; line-height: 1.6; }
         .active-page { display: block; }
 
         h2 { color: #ff9900; border-bottom: 1px solid #444; padding-bottom: 10px; }
 
-        /* REHBER KODU STİLİ */
         .code-box {
             background: #000;
             color: #00ff00;
@@ -100,12 +85,26 @@
             margin-bottom: 20px;
         }
 
+        .play-btn {
+            display: inline-block;
+            background: linear-gradient(to bottom, #ff9900, #cc7a00);
+            color: black;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 18px;
+            border: 2px solid #000;
+            cursor: pointer;
+        }
+
         .warning {
             color: #ff4444;
             font-weight: bold;
             background: #442222;
-            padding: 10px;
+            padding: 15px;
             border: 1px solid #ff4444;
+            margin-top: 10px;
         }
 
         footer { text-align: center; padding: 30px; color: #666; font-size: 11px; }
@@ -124,46 +123,58 @@
         <button onclick="openPage('fix', this)">HATA ÇÖZÜMLERİ</button>
     </nav>
 
-    <!-- ANA SAYFA -->
     <div id="home" class="page-content active-page">
         <h2>Retro GMod 9 Deneyimi</h2>
         <p>Garry's Mod'un efsanevi 9.0.4 sürümünü Steam'e ihtiyaç duymadan (veya Steam üzerinden manuel kısayol ile) çalıştırmak isteyenler için hazırladığım rehber sayfasına hoş geldiniz.</p>
         <div style="background:#444; height:200px; display:flex; align-items:center; justify-content:center; border:2px solid #555;">
             <span style="font-size:24px; color:#ff9900;">[ GMOD 9 SCREENSHOT ]</span>
         </div>
-        <p>2006-2009 yıllarının efsane modunu Source SDK Base 2006 altyapısıyla hayata döndürüyoruz. Yan menüden kurulum adımlarına geçebilirsin.</p>
+        <p>Aşağıdaki butona basarak kurulum dosyalarını indirebilir ve rehberi takip edebilirsiniz.</p>
     </div>
 
-    <!-- KURULUM SAYFASI -->
     <div id="setup" class="page-content">
-        <h2>Kısayol (Shortcut) Kurulumu</h2>
-        <p>GMod 9'u doğru çalıştırmak için "Hedef" (Target) yolunu elle düzenlememiz gerekiyor. İşte adım adım yapman gerekenler:</p>
+        <h2>Kurulum ve İndirme</h2>
         
-        <div class="step-box">
-            <strong>ADIM 1:</strong> Source SDK Base 2006'nın kurulu olduğundan emin olun. <br>
-            <strong>ADIM 2:</strong> C:\Program Files (x86)\Steam\steamapps\common\Source SDK Base klasöründeki hl2.exe dosyasına sağ tıklayıp kısayol oluştura tıklayın. <br>
-            <strong>ADIM 3:</strong> "Öğenin konumunu yazın" kısmına Source SDK Base içindeki hl2.exe yolunu ve oyun parametresini ekleyin.
+        <div style="text-align: center; margin-bottom: 30px;">
+            <a href="gmod9_kurulum.zip" class="play-btn" onclick="showReadme()">↓ GMOD 9 DOSYALARINI İNDİR</a>
         </div>
 
-        <h3>Hedef (Target) Şöyle Olmalı:</h3>
-        <div class="code-box">
-            "C:\Program Files (x86)\Steam\steamapps\common\Source SDK Base\hl2.exe" -game "C:\Program Files (x86)\Steam\steamapps\sourcemods\gmod9\"
-        </div>
-        <h3>Başlama Yeri (Start-in) ise Böyle OLmalı</h3>
-        <div class="code-box">
-            "C:\Program Files (x86)\Steam\steamapps\common\Source SDK Base"
-        </div>
+        <div id="readme-area" style="display:none;">
+            <div class="warning">
+                ⚠️ ÖNEMLİ: İndirme tamamlandıktan sonra aşağıdaki talimatları eksiksiz uygulayın!
+            </div>
 
-        <p class="warning">
-            NOT: "Başlatma Yeri" (Start In) kısmına dokunmayın! Orayı hl2.exe'nin bulunduğu klasör olarak otomatik bırakacaktır, elleme yaparsak oyun crash verebilir.
-        </p>
+            <h3>1. steam_appid Dosyası</h3>
+            <p>Zip içindeki <b>steam_appid.txt</b> dosyasını kopyalayın ve şu klasörün içine (hl2.exe'nin yanına) yapıştırın:</p>
+            <div class="code-box">C:\Program Files (x86)\Steam\steamapps\common\Source SDK Base\</div>
+
+            <h3>2. Kısayol (Shortcut) Ayarları</h3>
+            <div class="step-box">
+                <strong>ADIM 1:</strong> Source SDK Base içindeki hl2.exe'ye sağ tıklayıp "Kısayol Oluştur" deyin.<br>
+                <strong>ADIM 2:</strong> Kısayola sağ tıklayıp "Özellikler" seçeneğine girin.<br>
+                <strong>ADIM 3:</strong> Hedef ve Başlama Yeri kısımlarını aşağıdaki gibi düzenleyin.
+            </div>
+
+            <h3>Hedef (Target):</h3>
+            <div class="code-box">
+                "C:\Program Files (x86)\Steam\steamapps\common\Source SDK Base\hl2.exe" -game "C:\Program Files (x86)\Steam\steamapps\sourcemods\gmod9\"
+            </div>
+
+            <h3>Başlama Yeri (Start-in):</h3>
+            <div class="code-box">
+                "C:\Program Files (x86)\Steam\steamapps\common\Source SDK Base"
+            </div>
+
+            <p class="warning">
+                NOT: Başlatma yerine elleme yapmanız önerilmez, ancak yukarıdaki yolun doğruluğundan emin olun. Yanlış dizin crash hatasına sebep olur.
+            </p>
+        </div>
     </div>
 
-    <!-- HATA ÇÖZÜM -->
     <div id="fix" class="page-content">
         <h2>Sıkça Karşılaşılan Hatalar</h2>
-        <p><strong>Mounting hatası alıyorum:</strong> <code>sourcemods</code> klasörünün adının küçük harf olduğundan ve gmod9 klasörünün tam orada olduğundan emin olun.</p>
-        <p><strong>Steam is not running:</strong> GMod 9 eski olduğu için arkada Steam'in açık olması gerekebilir, ancak kısayol yöntemi genelde bunu bypass eder.</p>
+        <p><strong>Extra App ID set to 320:</strong> steam_appid.txt dosyasının Source SDK Base klasöründe olduğundan emin olun.</p>
+        <p><strong>Mounting hatası:</strong> <code>sourcemods</code> klasörünün adını ve içindeki gmod9 klasörünü kontrol edin.</p>
     </div>
 
     <footer>
@@ -175,15 +186,18 @@
     function openPage(pageName, elmnt) {
         var i, content, tablinks;
         content = document.getElementsByClassName("page-content");
-        for (i = 0; i < content.length; i++) {
-            content[i].style.display = "none";
-        }
+        for (i = 0; i < content.length; i++) { content[i].style.display = "none"; }
         tablinks = document.getElementsByTagName("button");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].classList.remove("active");
-        }
+        for (i = 0; i < tablinks.length; i++) { tablinks[i].classList.remove("active"); }
         document.getElementById(pageName).style.display = "block";
         elmnt.classList.add("active");
+    }
+
+    function showReadme() {
+        setTimeout(function() {
+            document.getElementById('readme-area').style.display = 'block';
+            window.scrollTo({ top: 500, behavior: 'smooth' });
+        }, 1000);
     }
 </script>
 
